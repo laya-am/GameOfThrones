@@ -15,10 +15,8 @@ interface Props {
 export default function Persons(props:Props) {
     const router = useRouter();
     const {slug} = router.query
-    console.log({slug});
     
       const [data, setData] = useState<Person[]>([])
-      console.log({data});
       
       useEffect(() => {
         async function fetch(){
