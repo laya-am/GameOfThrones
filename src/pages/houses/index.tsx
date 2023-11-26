@@ -16,8 +16,8 @@ export default function housesPage(props:Props) {
   
   useEffect(() => {
     async function fetch(){
-      const data = await props.fetchData("houses");
-      setData(data)
+      const houses = await props.fetchData("houses");
+      setData(houses)
     }
     fetch()
   }, [])
