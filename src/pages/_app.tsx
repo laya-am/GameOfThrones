@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 export default function App({ Component, pageProps }: AppProps) {
 
   async function fetchData(param: string) {
+    
     try {
       const response = await fetch(`https://api.gameofthronesquotes.xyz/v1/${param}`);
       

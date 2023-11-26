@@ -16,20 +16,21 @@ export default function Members(props:Props) {
     const {slug} = router.query
     
       const [data, setData] = useState<House[]>([])
-      console.log("data", data);
       
       useEffect(() => {
         async function fetch(){
+        if(slug){
           const data = await props.fetchData(`house/${slug}`);
           setData(data)
         }
-        fetch()
-      }, [])
+        }
+        fetch();
+      }, [slug])
       
       return (
         <ul>
           {data[0]?.members.map((member)=>{
-            return <li>{member.name}</li>}
+            return <li key={member.slug}>{member.name}</li>}
             )}
         </ul>
       )
