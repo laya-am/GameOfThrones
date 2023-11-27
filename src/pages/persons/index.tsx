@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
+import Searchbar from '../../../components/Searchbar';
 
 interface Props {
-  fetchData: (param: string) => []
+  fetchData: (param: string) => Promise<Person[]>;
 }
 type Person = {
   slug: string;
@@ -23,20 +24,9 @@ export default function PersonsPage(props:Props) {
     fetch()
   }, [])
   
-  //what type for event?
-  function handleSubmit(e: any){
-    e.preventDefault();
-    const searchQuery = e.target.elements.searchQuery.value;
-    setData(data.filter(person => person.name.toLowerCase().includes(searchQuery.toLowerCase())))
-    e.target.reset();
-  }
-
   return (
     <div>
-      <form action="" onSubmit={handleSubmit}>
-        <input name='searchQuery' type="text" />
-        <button type='submit'>search</button>
-      </form>
+      <Searchbar data={data} setData={setData} />
     <ul>
       {data.map((person)=>{
         return (
