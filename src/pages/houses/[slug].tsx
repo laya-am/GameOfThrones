@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 interface Props {
     fetchData: (param: string) => []
@@ -30,7 +31,11 @@ export default function Members(props:Props) {
       return (
         <ul>
           {data[0]?.members.map((member)=>{
-            return <li key={member.slug}>{member.name}</li>}
+            return (
+            <Link href={`/persons/${member.slug}`} key={member.slug}>
+              <li>{member.name}</li>
+            </Link>
+            )}
             )}
         </ul>
       )

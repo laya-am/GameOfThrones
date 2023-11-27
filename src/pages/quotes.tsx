@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import Link from 'next/link';
 interface Props {
     fetchData: (param: string) => Promise<Quote[]>;
   }
@@ -37,7 +37,7 @@ export default function Quotes(props:Props) {
             return (
             <li key={info.sentence}>
                 <h3>"{info.sentence}"</h3>
-                <p>{info.character.name}</p>
+                <Link href={`/persons/${info.character.slug}`}><p>{info.character.name}</p></Link>
             </li>
             )
             })}
