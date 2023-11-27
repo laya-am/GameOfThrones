@@ -19,6 +19,8 @@ export default function Quotes(props:Props) {
 
   const [data, setData] = useState<Quote[]>([])
   console.log({data})
+  const [fetchTrigger, setFetchTrigger] = useState<number>(0);
+
 
   useEffect(() => {
     async function fetch(){
@@ -26,18 +28,21 @@ export default function Quotes(props:Props) {
       setData(quotes)
     }
     fetch()
-  }, [])
+  }, [fetchTrigger])
 
   return (
-    <ul>
-        {data.map((info)=>{
-        return (
-        <li key={info.sentence}>
-            <h3>"{info.sentence}"</h3>
-            <p>{info.character.name}</p>
-        </li>
-        )
-      })}
-    </ul>
+    <div>
+        <ul>
+            {data.map((info)=>{
+            return (
+            <li key={info.sentence}>
+                <h3>"{info.sentence}"</h3>
+                <p>{info.character.name}</p>
+            </li>
+            )
+            })}
+        </ul>
+        <button onClick={()=> setFetchTrigger(fetchTrigger=> fetchTrigger+1)}>shuffle</button>
+    </div>
   )
 }
