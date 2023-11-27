@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
+import Searchbar from '../../../components/Searchbar';
 
 interface Props {
   fetchData: (param: string) => []
@@ -16,13 +17,15 @@ export default function housesPage(props:Props) {
   
   useEffect(() => {
     async function fetch(){
-      const data = await props.fetchData("houses");
-      setData(data)
+      const houses = await props.fetchData("houses");
+      setData(houses)
     }
     fetch()
   }, [])
   
   return (
+    <div>
+      <Searchbar data={data} setData={setData} />
     <ul>
       {data.map((house)=>{
         return (
@@ -32,5 +35,7 @@ export default function housesPage(props:Props) {
         )
       })}
     </ul>
+    </div>
+
   )
 }
