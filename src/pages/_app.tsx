@@ -1,5 +1,7 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from '../../components/Navbar';
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -18,5 +20,10 @@ export default function App({ Component, pageProps }: AppProps) {
       console.error("An Error occurred");
     }
   }
-  return <Component {...pageProps} fetchData={fetchData} />
+  return (
+  <>
+    <Component {...pageProps} fetchData={fetchData} />
+    <Navbar />
+  </>
+  )
 }

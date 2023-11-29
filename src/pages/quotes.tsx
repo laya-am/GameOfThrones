@@ -42,7 +42,7 @@ export default function Quotes(props:Props) {
             )
             })}
         </ul>
-        <button onClick={()=> setFetchTrigger(fetchTrigger=> fetchTrigger+1)}>shuffle</button>
+        <button className="btn btn-outline-light" onClick={()=> setFetchTrigger(fetchTrigger=> fetchTrigger+1)}>shuffle</button>
     </div>
   )
 }

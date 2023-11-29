@@ -1,4 +1,5 @@
 import React from 'react'
+// import { Button } from 'react-bootstrap';
 
 interface Props {
   data: Data[];
@@ -31,9 +32,9 @@ export default function Searchbar({data, setData}: Props) {
         e.currentTarget.reset();
       }
   return (
-    <form action="" onSubmit={handleSubmit}>
-        <input name='searchQuery' type="text" />
-        <button type='submit'>search</button>
+    <form action="" onSubmit={handleSubmit} className='d-flex'  data-bs-theme="dark">
+          <input name='searchQuery' type="text"  className="form-control me-2" />
+          <button className="btn btn-outline-light" type='submit'>search</button>
       </form>
       )
 }
