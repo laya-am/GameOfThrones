@@ -13,17 +13,17 @@ body{
   background-image: url("../../public/assets/throne.jpeg");
   background-size:cover;
   color: rgb(94, 82, 36);
-  height: 100vh
+  padding-bottom: 80px;
 }
 
 li{
   list-style-type: none;
 }
 
-a{
+.a{
   text-decoration: none;
+  color:red
 }
-
 
 
 

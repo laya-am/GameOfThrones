@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import Searchbar from '../../../components/Searchbar';
+import Card from '../../../components/Card';
 
 interface Props {
   fetchData: (param: string) => []
@@ -29,9 +30,9 @@ export default function housesPage(props:Props) {
     <ul>
       {data.map((house)=>{
         return (
-        <Link href={`houses/${house.slug}`} key={house.slug}>
-        <li>{house.name}</li>
-        </Link>
+        <li key={house.slug}>
+          <Card name={house.name} slug={house.slug} />
+        </li>
         )
       })}
     </ul>
