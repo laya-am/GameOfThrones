@@ -1,28 +1,25 @@
 import Link from 'next/link';
 import React from 'react';
+import styles from '../../src/styles/Navbar.module.css'; // Import your custom CSS module
 
 export default function Navbar() {
   return (
-    <nav className='navbar bg-dark navbar-expand fixed-bottom' data-bs-theme="dark">
-      <div className="container-fluid justify-content-center">
-        <ul className='navbar-nav d-flex justify-content-center'>
-          <li className='nav-item'>
-            <Link href="/houses">
-              <span className='nav-link'>Houses</span>
+        <ul className={styles.navbar}>
+          <li>
+            <Link href="/houses" className={styles.navLink}>
+              Houses
             </Link>
           </li>
-          <li className='nav-item'>
-            <Link href="/persons">
-              <span className='nav-link'>Persons</span>
+          <li>
+            <Link href="/persons" className={styles.navLink}>
+              Persons
             </Link>
           </li>
-          <li className='nav-item'>
-            <Link href="/quotes">
-              <span className='nav-link'>Quotes</span>
+          <li>
+            <Link href="/quotes" className={styles.navLink}>
+              Quotes
             </Link>
           </li>
         </ul>
-      </div>
-    </nav>
-  )
+  );
 }

@@ -1,18 +1,25 @@
 import Link from "next/link";
-
+import styles from "../../src/styles/Card.module.css"
 interface Props{
-    name: string;
+    person?: string;
     slug: string;
+    house: string
 }
 
-export default function Card({name, slug}: Props) {
+export default function Card({person, slug, house}: Props) {
   return (
-    <div className="card my-4" style={{"width": "30%"}} data-bs-theme="dark">
-  {/* <img src="..." className="card-img-top" alt="..."> */}
-  <div className="card-body">
-    {/* <h5 className="card-title">{name}</h5> */}
-    <Link href={`houses/${slug}`} className="card-link .a">{name}</Link>
-  </div>
-</div>
+    // <div className="card my-4" style={{"width": "30%"}} data-bs-theme="dark">
+  // <img src="..." className="card-img-top" alt="..."> //
+//   <div className="card-body">
+    // <h5 className="card-title">{name}</h5> //
+    <li className={styles.card}>
+    {person ?
+        <Link href={`persons/${slug}`}>{person} {house && ` of ${house}`}</Link>
+        :
+        <Link href={`houses/${slug}`}>{house}</Link>
+    }
+    </li>
+  /* </div> */
+// </div>
   )
 }

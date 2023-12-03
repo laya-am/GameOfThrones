@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import Searchbar from '../../../components/Searchbar';
+import Card from '../../../components/Card';
+import styles from '../../styles/Card.module.css';
 
 interface Props {
   fetchData: (param: string) => Promise<Person[]>;
@@ -27,15 +29,11 @@ export default function PersonsPage(props:Props) {
   return (
     <div>
       <Searchbar data={data} setData={setData} />
-    <ul>
-      {data.map((person)=>{
-        return (
-        <Link href={`persons/${person.slug}`} key={person.slug}>
-        <li>{person.name} {person.house && `of ${person.house.name}`}</li>
-        </Link>
-        )
-      })}
-    </ul>
+      <ul className={styles.cardContainer}>
+        {data.map((person) => (
+          <Card key={person.slug} slug={person.slug} person={person.name} house={person.house?.name} />
+        ))}
+      </ul>
     </div>
-  )
+  );
 }
