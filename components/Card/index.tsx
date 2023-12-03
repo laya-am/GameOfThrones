@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "../../src/styles/Card.module.css"
+import Image from "next/image";
 interface Props{
     person?: string;
     slug: string;
@@ -8,18 +9,15 @@ interface Props{
 
 export default function Card({person, slug, house}: Props) {
   return (
-    // <div className="card my-4" style={{"width": "30%"}} data-bs-theme="dark">
-  // <img src="..." className="card-img-top" alt="..."> //
-//   <div className="card-body">
-    // <h5 className="card-title">{name}</h5> //
     <li className={styles.card}>
     {person ?
-        <Link href={`persons/${slug}`}>{person} {house && ` of ${house}`}</Link>
+        <>
+        <Image src={`/assets/characters/${slug}.jpeg`} width="120" height="120" alt="char" className={styles.image} />
+        <Link href={`persons/${slug}`}>{person} <br/> {house && ` of ${house}`}</Link>
+        </>
         :
         <Link href={`houses/${slug}`}>{house}</Link>
     }
     </li>
-  /* </div> */
-// </div>
   )
 }

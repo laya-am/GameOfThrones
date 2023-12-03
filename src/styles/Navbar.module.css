@@ -2,13 +2,12 @@
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
-    background-color: white;
+    background-color: black;
     bottom: 0;
     position: fixed;
     width: 100vw;
-    opacity: 30%;
 }
 
 .navLink{
-    color: black;
+    color: linen;
 }
