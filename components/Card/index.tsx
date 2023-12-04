@@ -12,7 +12,7 @@ export default function Card({person, slug, house}: Props) {
     <li className={styles.listItem}>
     {person ?
         <Link href={`persons/${slug}`} className={styles.card}>
-        <Image src={`/assets/characters/${slug}.jpeg`} width="120" height="120" alt="char" className={styles.image} />
+        <Image src={`/assets/characters/${slug}.jpeg`} width="120" height="120" alt={`${person}'s image'`} className={styles.image} />
         <h3>{person} <br/> {house && ` of ${house}`}</h3>
         </Link>
         :
