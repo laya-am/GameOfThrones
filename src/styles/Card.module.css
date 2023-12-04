@@ -6,10 +6,14 @@
     padding: 5%;
   }
   
+.listItem{
+  display: contents;
+}
 
 .card {
   display: flex;
   flex-direction: column;
+  /* flex: 0 0 calc(50% - 20px); */
   align-items: center;
   position: relative;
   width: 30%;

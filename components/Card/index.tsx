@@ -9,14 +9,17 @@ interface Props{
 
 export default function Card({person, slug, house}: Props) {
   return (
-    <li className={styles.card}>
+    <li className={styles.listItem}>
     {person ?
-        <>
+        <Link href={`persons/${slug}`} className={styles.card}>
         <Image src={`/assets/characters/${slug}.jpeg`} width="120" height="120" alt="char" className={styles.image} />
-        <Link href={`persons/${slug}`}>{person} <br/> {house && ` of ${house}`}</Link>
-        </>
+        <h3>{person} <br/> {house && ` of ${house}`}</h3>
+        </Link>
         :
-        <Link href={`houses/${slug}`}>{house}</Link>
+        <Link href={`houses/${slug}`} className={styles.card}>
+        <Image src={`/assets/sigils/${slug}.jpeg`} width="120" height="120" alt="char" className={styles.image} />
+        <h3>{house}</h3>
+        </Link>
     }
     </li>
   )
