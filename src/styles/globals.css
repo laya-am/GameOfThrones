@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'TrajanPro';
-  src: url('../../public/assets/trajan-pro.ttf') format('truetype');
+  src: url('../../public/assets/fonts/trajan-pro.ttf') format('truetype');
   font-family: 'TrajanRegular';
-  src: url('../../public/assets/trajan-regular.ttf') format('truetype');
+  src: url('../../public/assets/fonts/trajan-regular.ttf') format('truetype');
 }
 
 * {
@@ -16,7 +16,7 @@ body{
   background-size:cover;
   background-position: center;
   background-attachment: fixed;
-  color: rgb(94, 82, 36);
+  color: rgb(239 202 49);
   padding-bottom: 100px;
 }
 
