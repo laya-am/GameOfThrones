@@ -11,7 +11,7 @@
 }
 
 .membersList{
-    align-self: flex-start;
+    /* align-self: flex-start; */
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -28,7 +28,7 @@
     transform: scale(1.05);
 }
 
-.personImage{
+.image{
     object-fit: cover;
     object-position: top;
     box-shadow: 5px 5px 10px black;
