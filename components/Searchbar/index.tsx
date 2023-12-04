@@ -1,39 +1,45 @@
-import React from 'react'
-import styles from "../../src/styles/Searchbar.module.css"
-interface Props {
-  data: Data[];
-  setData: React.Dispatch<React.SetStateAction<Data[]>>;
+import React from 'react';
+import styles from "../../src/styles/Searchbar.module.css";
+
+interface Props<T> {
+  data: T[];
+  setData: React.Dispatch<React.SetStateAction<T[]>>;
 }
 
-interface Data {
-  slug: string;
-  name: string;
-  house?: {name: string; slug: string};
-  quotes?: string[]
-  members?: {name: string; slug: string}[]
-
-}
+// interface Data {
+//   slug: string;
+//   name: string;
+// }
 
 // interface Person extends Data {
-//   house: {name: string; slug: string};
-//   quotes: string[]
+//   house: { name: string; slug: string };
+//   quotes: string[];
 // }
 
-// interface House extends Data{
-//   members: {name: string; slug: string}[]
+// interface House extends Data {
+//   members: { name: string; slug: string }[];
 // }
 
-export default function Searchbar({data, setData}: Props) {
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>){
-        e.preventDefault();
-        const searchQuery = (e.target as any).elements.searchQuery.value;
-        setData(data.filter((info: Data) => info.name.toLowerCase().includes(searchQuery.toLowerCase())))
-        e.currentTarget.reset();
-      }
+export default function Searchbar<T>({ data, setData }: Props<T>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const searchQuery = (e.target as any).elements.searchQuery.value;
+    setData(
+      data.filter((info) => {
+        if (typeof info === 'object' && info !== null) {
+          const objectInfo = info as { name?: string };
+          return objectInfo.name && objectInfo.name.toLowerCase().includes(searchQuery.toLowerCase());
+        }
+        return false;
+      })
+    );
+    e.currentTarget.reset();
+  }
+
   return (
-    <form action="" onSubmit={handleSubmit} className={styles.form}>
-          <input name='searchQuery' type="text"  className={styles.input} />
-          <button className={styles.btn} type='submit'>search</button>
-      </form>
-      )
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <input name='searchQuery' type="text" className={styles.input} />
+      <button className={styles.btn} type='submit'>search</button>
+    </form>
+  );
 }

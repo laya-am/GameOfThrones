@@ -35,13 +35,13 @@ console.log(data);
       return (
         <div className={styles.container}>
         <h1 className={styles.title}>{data[0]?.name}</h1>
-        <Image src={`/assets/sigils/${slug}.jpeg`} width="120" height="120" alt={`sigil of ${data[0]?.name}`} className={styles.sigil} />
+        <Image src={`/assets/sigils/${slug}.jpeg`} width="150" height="150" alt={`sigil of ${data[0]?.name}`} className={styles.image} />
         <ul className={styles.membersList}>
           {data[0]?.members.map((member)=>{
             return (
             <li key={member.slug}>
               <Link href={`/persons/${member.slug}`} className={styles.person}>
-                <Image src={`/assets/characters/${member.slug}.jpeg`} width="120" height="120" alt={`${member.name}'s image'`} className={styles.personImage} />
+                <Image src={`/assets/characters/${member.slug}.jpeg`} width="120" height="120" alt={`${member.name}'s image'`} className={styles.image} />
                 <h3 className={styles.personName}>
                   {member.name}
                 </h3>
