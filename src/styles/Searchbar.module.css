@@ -1,0 +1,25 @@
+.form{
+    padding: 2rem;
+    opacity: 0.8;
+}
+
+.input{
+    background-color: rgba(255,255,255,40);
+    border: none;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 0 10px;
+    height: 4vh;
+}
+
+.btn{
+    padding: 9px;
+    border: none;
+    border-radius: 8px;
+    background-color: linen;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover{
+    transform: scale(0.95);
+}

@@ -1,6 +1,5 @@
 import React from 'react'
-// import { Button } from 'react-bootstrap';
-
+import styles from "../../src/styles/Searchbar.module.css"
 interface Props {
   data: Data[];
   setData: React.Dispatch<React.SetStateAction<Data[]>>;
@@ -32,9 +31,9 @@ export default function Searchbar({data, setData}: Props) {
         e.currentTarget.reset();
       }
   return (
-    <form action="" onSubmit={handleSubmit} className='d-flex'  data-bs-theme="dark">
-          <input name='searchQuery' type="text"  className="form-control me-2" />
-          <button className="btn btn-outline-light" type='submit'>search</button>
+    <form action="" onSubmit={handleSubmit} className={styles.form}>
+          <input name='searchQuery' type="text"  className={styles.input} />
+          <button className={styles.btn} type='submit'>search</button>
       </form>
       )
 }
