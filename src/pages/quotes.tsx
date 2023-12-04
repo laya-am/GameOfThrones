@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
+import styles from "../styles/QuotesPage.module.css"
+
 interface Props {
     fetchData: (param: string) => Promise<Quote[]>;
   }
@@ -31,18 +33,18 @@ export default function Quotes(props:Props) {
   }, [fetchTrigger])
 
   return (
-    <div>
-        <ul>
+    <div className={styles.quoteContainer}>
+        <ul className={styles.list}>
             {data.map((info)=>{
             return (
-            <li key={info.sentence}>
-                <h3>"{info.sentence}"</h3>
-                <Link href={`/persons/${info.character.slug}`}><p>{info.character.name}</p></Link>
+            <li key={info.sentence} className={styles.listItem}>
+                <h3 className={styles.quote}>"{info.sentence}"</h3>
+                <Link href={`/persons/${info.character.slug}`} className={styles.character}>{info.character.name}</Link>
             </li>
             )
             })}
         </ul>
-        <button onClick={()=> setFetchTrigger(fetchTrigger=> fetchTrigger+1)}>shuffle</button>
+        <button className={styles.btn} onClick={()=> setFetchTrigger(fetchTrigger=> fetchTrigger+1)}>shuffle</button>
     </div>
   )
 }

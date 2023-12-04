@@ -1,5 +1,5 @@
 import React from 'react'
-
+import styles from "../../src/styles/Searchbar.module.css"
 interface Props {
   data: Data[];
   setData: React.Dispatch<React.SetStateAction<Data[]>>;
@@ -31,9 +31,9 @@ export default function Searchbar({data, setData}: Props) {
         e.currentTarget.reset();
       }
   return (
-    <form action="" onSubmit={handleSubmit}>
-        <input name='searchQuery' type="text" />
-        <button type='submit'>search</button>
+    <form action="" onSubmit={handleSubmit} className={styles.form}>
+          <input name='searchQuery' type="text"  className={styles.input} />
+          <button className={styles.btn} type='submit'>search</button>
       </form>
       )
 }

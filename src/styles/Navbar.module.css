@@ -1,0 +1,13 @@
+.navbar{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: black;
+    bottom: 0;
+    position: fixed;
+    width: 100vw;
+}
+
+.navLink{
+    color: linen;
+}

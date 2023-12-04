@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
+import styles from "../../styles/PersonsSlugPage.module.css"
 
 interface Props {
     fetchData: (param: string) => []
@@ -30,15 +32,20 @@ export default function Persons(props:Props) {
       }, [slug])
       
       return (
-        <div>
-            <h2>{data[0]?.name}</h2>
-            {data[0]?.house &&
-            <Link href={`/houses/${data[0]?.house.slug}`}>
-              <h4>{data[0]?.house.name}</h4>
-            </Link>}
-            <ul>
+        <div className={styles.pageContainer}>
+          <div className={styles.infoSection}>
+            <div className={styles.titlesSection}>
+              <h2>{data[0]?.name}</h2>
+              {data[0]?.house &&
+              <Link href={`/houses/${data[0]?.house.slug}`} className={styles.house}>
+              {data[0]?.house.name}
+              </Link>}
+            </div>
+            <Image src={`/assets/characters/${slug}.jpeg`} width="150" height="150" alt={`${data[0]?.name}'s image'`} className={styles.image} />
+          </div>
+            <ul className={styles.list}>
             {data[0]?.quotes.map((quote, index)=> {
-                return <li key={index}>"{quote}"</li>}
+                return <li key={index} className={styles.quote}>"{quote}"</li>}
                 )}
             </ul>
         </div>
