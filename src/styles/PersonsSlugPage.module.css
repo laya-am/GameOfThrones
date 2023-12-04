@@ -9,7 +9,7 @@
 .infoSection{
     display: flex;
     justify-content: space-between;
-}
+} 
 
 .titlesSection{
     display: flex;
@@ -41,4 +41,8 @@
     color: black;
     flex-direction: column;
     gap: 1rem;
+}
+
+.quote{
+    font-style: italic;
 }

@@ -45,7 +45,7 @@ export default function Persons(props:Props) {
           </div>
             <ul className={styles.list}>
             {data[0]?.quotes.map((quote, index)=> {
-                return <li key={index}>"{quote}"</li>}
+                return <li key={index} className={styles.quote}>"{quote}"</li>}
                 )}
             </ul>
         </div>

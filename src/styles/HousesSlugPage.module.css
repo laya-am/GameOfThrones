@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 10%;
+}
+
+.title{
+    text-align: center;
+}
+
+.membersList{
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.person{
+    display: flex;
+    align-items: center;
+    gap: 2rem;  
+    transition: transform 0.5s ease-in-out;  
+}
+
+.person:hover{
+    transform: scale(1.05);
+}
+
+.personImage{
+    object-fit: cover;
+    object-position: top;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 100%;
+}
+
+.personName{
+    color: linen;
+}
