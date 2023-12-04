@@ -1,9 +1,15 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 5%;
+}
+
 .cardContainer {
     display: flex;
     flex-wrap: wrap;
     gap: 90px;
     justify-content: space-between;
-    padding: 5%;
   }
   
 .listItem{
@@ -35,4 +41,19 @@
     object-position: top;
     box-shadow: 5px 5px 10px gray;
     border-radius: 100%;
+  }
+
+.text{
+  color:rgb(239 202 49);
+}
+
+  @media (max-width: 500px) {
+    .cardContainer {
+      flex-direction: column; 
+      align-items: center;
+    }
+  
+    .card {
+      width: 80%;
+    }
   }

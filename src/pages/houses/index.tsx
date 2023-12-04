@@ -25,7 +25,7 @@ export default function housesPage(props:Props) {
   }, [])
   
   return (
-    <div>
+    <div className={styles.container}>
       <Searchbar data={data} setData={setData} />
       <ul className={styles.cardContainer}>
         {data.map((house)=>{

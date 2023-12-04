@@ -13,12 +13,12 @@ export default function Card({person, slug, house}: Props) {
     {person ?
         <Link href={`persons/${slug}`} className={styles.card}>
         <Image src={`/assets/characters/${slug}.jpeg`} width="120" height="120" alt={`${person}'s image'`} className={styles.image} />
-        <h3>{person} <br/> {house && ` of ${house}`}</h3>
+        <h3 className={styles.text}>{person} <br/> {house && ` of ${house}`}</h3>
         </Link>
         :
         <Link href={`houses/${slug}`} className={styles.card}>
         <Image src={`/assets/sigils/${slug}.jpeg`} width="120" height="120" alt="char" className={styles.image} />
-        <h3>{house}</h3>
+        <h3 className={styles.text}>{house}</h3>
         </Link>
     }
     </li>

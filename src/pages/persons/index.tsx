@@ -27,7 +27,7 @@ export default function PersonsPage(props:Props) {
   }, [])
   
   return (
-    <div>
+    <div className={styles.container}>
       <Searchbar data={data} setData={setData} />
       <ul className={styles.cardContainer}>
         {data.map((person) => (
