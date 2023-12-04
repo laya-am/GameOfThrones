@@ -2,7 +2,7 @@
 ## About this project
 
 This is a website of Game of Thrones houses, characters, and quotations. All data is fetched from [https://gameofthronesquotes.xyz](https://gameofthronesquotes.xyz/). 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). 
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It is written in typescript and there are unit tests for for each component.
 
 
 ## How to view this project
