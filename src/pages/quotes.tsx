@@ -17,7 +17,7 @@ type Quote = {
     }
 }
 
-export default function Quotes(props:Props) {
+export default function Quotes({ fetchData } :Props) {
 
   const [data, setData] = useState<Quote[]>([])
   console.log({data})
@@ -26,7 +26,7 @@ export default function Quotes(props:Props) {
 
   useEffect(() => {
     async function fetch(){
-      const quotes = await props.fetchData("random/5");
+      const quotes = await fetchData("random/5");
       setData(quotes)
     }
     fetch()
@@ -38,7 +38,7 @@ export default function Quotes(props:Props) {
             {data.map((info)=>{
             return (
             <li key={info.sentence} className={styles.listItem}>
-                <h3 className={styles.quote}>"{info.sentence}"</h3>
+                <h3 className={styles.quote}>&quot;{info.sentence}&quot;</h3>
                 <Link href={`/persons/${info.character.slug}`} className={styles.character}>{info.character.name}</Link>
             </li>
             )

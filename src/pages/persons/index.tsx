@@ -14,13 +14,13 @@ type Person = {
   quotes: string[]
 }
 
-export default function PersonsPage(props:Props) {
+export default function PersonsPage({ fetchData }:Props) {
 
   const [data, setData] = useState<Person[]>([])
   console.log({data})
   useEffect(() => {
     async function fetch(){
-      const characters = await props.fetchData("characters");
+      const characters = await fetchData("characters");
       setData(characters)
     }
     fetch()

@@ -15,7 +15,7 @@ type House = {
     members: {name: string; slug: string}[];
 }
 
-export default function Members(props:Props) {
+export default function Members({ fetchData }:Props) {
     const router = useRouter();
     const {slug} = router.query
     
@@ -25,7 +25,7 @@ console.log(data);
       useEffect(() => {
         async function fetch(){
         if(slug){
-          const data = await props.fetchData(`house/${slug}`);
+          const data = await fetchData(`house/${slug}`);
           setData(data)
         }
         }

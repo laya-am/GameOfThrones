@@ -15,7 +15,7 @@ interface Props {
     quotes: string[]
   }
 
-export default function Persons(props:Props) {
+export default function Persons({ fetchData }:Props) {
     const router = useRouter();
     const {slug} = router.query
     
@@ -24,7 +24,7 @@ export default function Persons(props:Props) {
       useEffect(() => {
         async function fetch(){
         if(slug){
-          const data = await props.fetchData(`character/${slug}`);
+          const data = await fetchData(`character/${slug}`);
           setData(data)
         }
         }
@@ -45,7 +45,7 @@ export default function Persons(props:Props) {
           </div>
             <ul className={styles.list}>
             {data[0]?.quotes.map((quote, index)=> {
-                return <li key={index} className={styles.quote}>"{quote}"</li>}
+                return <li key={index} className={styles.quote}>&quot;{quote}&quot;</li>}
                 )}
             </ul>
         </div>

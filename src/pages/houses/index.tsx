@@ -11,13 +11,13 @@ type House = {
   members: {name: string; slug: string}[]
 }
 
-export default function HousesPage(props:Props) {
+export default function HousesPage({ fetchData }:Props) {
 
   const [data, setData] = useState<House[]>([])
   
   useEffect(() => {
     async function fetch(){
-      const houses = await props.fetchData("houses");
+      const houses = await fetchData("houses");
       setData(houses)
     }
     fetch()
