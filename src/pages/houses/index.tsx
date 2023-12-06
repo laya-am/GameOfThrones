@@ -11,7 +11,7 @@ type House = {
   members: {name: string; slug: string}[]
 }
 
-export default function housesPage(props:Props) {
+export default function HousesPage(props:Props) {
 
   const [data, setData] = useState<House[]>([])
   
