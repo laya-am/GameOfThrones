@@ -38,7 +38,7 @@ export default function Searchbar<T>({ data, setData }: Props<T>) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <input name='searchQuery' type="text" className={styles.input} />
+      <input name='searchQuery' type="text" className={styles.input}  data-testid="searchInput" />
       <button className={styles.btn} type='submit'>search</button>
     </form>
   );
