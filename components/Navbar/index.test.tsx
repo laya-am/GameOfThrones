@@ -4,10 +4,15 @@ import Navbar from './index';
 import '@testing-library/jest-dom';
 
 // Mock Next.js Link
+
 jest.mock('next/link', () => {
-  return ({ children, href }) => {
+  const MockLink = ({ children, href }) => {
     return <a href={href}>{children}</a>;
   };
+
+  MockLink.displayName = 'NextLink'; // Provide a displayName
+
+  return MockLink;
 });
 
 describe('Navbar Component', () => {
